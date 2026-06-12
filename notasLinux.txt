@@ -1,2 +1,6 @@
-hola
+--APT
+autoremove->elimina dependencias innecesarias
+update-> actuliza la lista de paquetes
+full-upgrade-> a
 
+Asyqasyq10
