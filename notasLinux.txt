@@ -1,6 +1,58 @@
---APT
-autoremove->elimina dependencias innecesarias
-update-> actuliza la lista de paquetes
-full-upgrade-> a
-
 Asyqasyq10
+
+#APTITUDE
+man aptitude
+sudo apt-get install aptitude
+sudo aptitude searcha calculador
+sudo aptitude show gnome calculador
+sudo aptitude install gnome-calculador
+sudo aptitude remove gnome-calculador -> elimia el paquete 
+sudo aptitude purge gnome-calculador -> elilmina  el paquete y su configuraciona
+sudo aptitude update
+sudo aptitude full-upgrade(desintala el paquete)
+sudo aptitude full-upgrade(no dedintala paquetes)
+
+
+#APT
+sintaxis basica
+apt<comando> [argumentos]....
+autoremove->elimina dependencias innecesarias
+update	-> actuliza la lista de paquetes
+full-upgrade
+update 	-> actuliza la lista de paquetes
+full-upgrade -> actuliza el sistema
+		desisntala si es necesario
+upgrade -> actuliza el sistema
+	   no desintala 
+	   
+#TERMINAL PSEUDOTERMINALES Y COMANDOS
+pwd ubicacion donde estamos
+-- modificador
+cd- directorio anterio
+cd vuelve al home
+ls lista archivos y directorios
+ls -l muestra un listado de long o extendido
+ls -lh h-> formato humano
+ls -lht t->formato temporal
+ls -lhtr r->formato revesa
+du -h /temp/* -> el tamano de cada archivo
+du -sh /tmp/ ->su el tamano
+df -> muestra tamano
+history -> muestra el historia de comnados
+!! ->ejecuta el ultimo comando
+mkdir -> crea directorio
+mkdir-p/tmp/dirA/dirB ->(el modificador (-p) permite crear)
+rm -> elimina solo archivos
+rmdir-> elimina solo carpetas vacias
+rm -r -> elimina carpetas llenas o vacias
+rm -ri -> la (i) pregunta archivo por archivo 
+rm -rf -> forsar al eliminacion sin preguntar (f)
+ls -R -> lista recursiva
+mv->
+
+
+
+
+	   
+		
+
