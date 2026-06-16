@@ -1,3 +1,5 @@
+# Welcome to GitHub Desktop!
+
 Asyqasyq10
 
 #APTITUDE
@@ -28,14 +30,18 @@ upgrade -> actuliza el sistema
 #TERMINAL PSEUDOTERMINALES Y COMANDOS
 pwd ubicacion donde estamos
 -- modificador
-cd- directorio anterio
-cd vuelve al home
+cd- directorio anterio al que se estaba trabajando
+cd vuelve al directorio home
 ls lista archivos y directorios
-ls -l muestra un listado de long o extendido
-ls -lh h-> formato humano
-ls -lht t->formato temporal
-ls -lhtr r->formato revesa
-du -h /temp/* -> el tamano de cada archivo
+ls -l (-l) muestra un listado de long o extendido
+ls -lh (h)-> formato humano
+ls -lht (t)->formato temporal fecha de ultima modificacion
+ls -lhtr (r)->formato revesa
+`.`  (Un punto)   -> Significa "aquí mismo" (el directorio actual). 
+                       Ejemplo: `./script.sh` (ejecuta un archivo de esta carpeta).
+`..` (Dos puntos) -> Significa "la carpeta de arriba" (el directorio padre). 
+                       Ejemplo: `cd ..` (sube un nivel).
+du -h /temp/* -> el tamano de cada directorio
 du -sh /tmp/ ->su el tamano
 df -> muestra tamano
 history -> muestra el historia de comnados
@@ -44,12 +50,11 @@ mkdir -> crea directorio
 mkdir-p/tmp/dirA/dirB ->(el modificador (-p) permite crear)
 rm -> elimina solo archivos
 rmdir-> elimina solo carpetas vacias
-rm -r -> elimina carpetas llenas o vacias
+rm -r -> (-r) elimina carpetas llenas o vacias
 rm -ri -> la (i) pregunta archivo por archivo 
 rm -rf -> forsar al eliminacion sin preguntar (f)
 ls -R -> lista recursiva
 mv->
-
 
 
 
