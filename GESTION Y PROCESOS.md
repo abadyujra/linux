@@ -1,4 +1,4 @@
-# 🐧 ADMINISTRACIÓN DE LINUX: GESTIÓN Y PROCESOS
+    # 🐧 ADMINISTRACIÓN DE LINUX: GESTIÓN Y PROCESOS
 
 ---
 
@@ -45,11 +45,21 @@
 ### Rango del Kernel
 *   **[0 - 99]** ➡️ PRIORIDADES REAL-TIME (Reservado para Kernel/Hardware).
 *   **[100 - 139]** ➡️ PRIORIDADES DE NIVEL DE USUARIO (Tus programas).
-    *   *Nota:* htop a veces lo mapea visualmente en un rango resumido de **0 a 39**.
+    *   *Nota:* htop a veces lo mapea visualmente en un rango resumido de `PRI` **0 a 39**.
+*      `NICE` **-20$ hasta 19**Lógica de "Amabilidad": * Un número positivo alto (como 19) significa que el proceso es muy amable (NICE), cede el paso a los demás y corre lento.Un número negativo bajo (como -20) significa que el proceso es egoísta, exige toda la CPU para él y corre rápido.Por defecto: Todo proceso nuevo nace con un NI de 0.
+
+**PRI = 20 + NICE**
 
 ### Comandos de Modificación
 *   `sudo nice -n -10 [comando]` ➡️ Inicia un comando nuevo con alta prioridad (valores negativos requieren `sudo`).
 *   `sudo renice -n +5 -p [PID]` ➡️ Cambia la prioridad de un proceso que **ya está corriendo** pasándole su número de ID (PID).
+## Modificar NICE desde el comando top 
+*   Paso 1: Abre el monitor ejecutando `top` (si vas a subir prioridad o editar procesos de otros usuarios, ábrelo con sudo top).
+*   Paso 2: Presiona la tecla `r` (de Renice).
+*   Paso 3: El sistema te pedirá el PID:PID to renice [default pid = X]: ➡️ Escribe el PID del proceso y presiona Enter.
+*   Paso 4: El sistema te pedirá el nuevo valor:Renice PID X to value: ➡️ Escribe el nuevo valor de NICE (de -20 a 19) y presiona Enter.
+
+⚠️ **Notas** de seguridad para el examen/entrevista:Si usas `top` a secas (sin sudo), solo puedes bajar la prioridad (poner números positivos de NICE).Si intentas poner un número negativo (subir prioridad) sin usar `sudo top`, el sistema te dará el error: Renice failed: Permission denied.
 
 ---
 
