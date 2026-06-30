@@ -18,13 +18,7 @@
 
 ---
 
-##  Estructura del Archivo `/etc/passwd`
-
-Cada línea de este archivo representa a un usuario y sus campos están separados por dos puntos (`:`).
-
-### Sintaxis general:
-text
-Usuario : Password(?) : UID : GID : Descripción : Directorio Home : Shell por defecto
+##  Estructura del Archivo 
 
 ![Texto alternativo](imagenes/1.png)
 ![Texto alternativo](imagenes/2.png)
