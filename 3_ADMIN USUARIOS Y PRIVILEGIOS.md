@@ -28,6 +28,10 @@ Usuario : Password(?) : UID : GID : Descripción : Directorio Home : Shell por d
 
 ![Texto alternativo](imagenes/1.png)
 ![Texto alternativo](imagenes/2.png)
+![Texto alternativo](imagenes/3.png)
+![Texto alternativo](imagenes/4.png)
+![Texto alternativo](imagenes/5.png)
+
 
 # AGREGAR USUARIOS NUEVOS 
 
