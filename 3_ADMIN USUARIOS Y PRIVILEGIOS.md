@@ -26,7 +26,8 @@ Cada línea de este archivo representa a un usuario y sus campos están separado
 text
 Usuario : Password(?) : UID : GID : Descripción : Directorio Home : Shell por defecto
 
-![Texto alternativo](1.png)
+![Texto alternativo](imagenes/1.png)
+![Texto alternativo](imagenes/2.png)
 
 # AGREGAR USUARIOS NUEVOS 
 
