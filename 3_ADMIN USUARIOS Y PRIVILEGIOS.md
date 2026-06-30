@@ -1,13 +1,13 @@
 # Administración de Usuarios y Procesos en Linux
 
-## 1. Comandos de Superusuario
+##  Comandos de Superusuario
 
 * `su` ➡️ Permite cambiar a la cuenta de `root` (u otro usuario si se especifica).
 * `sudo` ➡️ Permite ejecutar un comando individual con privilegios de `root` sin cambiar de sesión.
 
 ---
 
-## 2. Archivos de Configuración de Usuarios y Grupos
+##  Archivos de Configuración de Usuarios y Grupos
 
 | Archivo | Descripción |
 | :--- | :--- |
@@ -18,7 +18,7 @@
 
 ---
 
-## 3. Estructura del Archivo `/etc/passwd`
+##  Estructura del Archivo `/etc/passwd`
 
 Cada línea de este archivo representa a un usuario y sus campos están separados por dos puntos (`:`).
 
@@ -54,7 +54,7 @@ juan:$6$902vABSb$8AShXXX:16969:0:99999:7:::
 # CREACIÓN Y MODIFICACIÓN DE USUARIOS Y GRUPOS EN LINUX
 ======================================================
 
-## 1. Creación de Usuarios: Alto Nivel vs. Bajo Nivel
+##  Creación de Usuarios: Alto Nivel vs. Bajo Nivel
 -----------------------------------------------------
 
 En Linux existen dos comandos para crear usuarios. La diferencia clave es qué tan automático es el proceso:
@@ -64,7 +64,7 @@ En Linux existen dos comandos para crear usuarios. La diferencia clave es qué t
 
 ---
 
-## 2. Comandos Prácticos de Creación (Paso a Paso)
+##  Comandos Prácticos de Creación (Paso a Paso)
 --------------------------------------------------
 
 ### Paso 1: Crear un Grupo
@@ -95,7 +95,7 @@ Un usuario recién creado con `useradd` está bloqueado hasta que le asignes una
 
 ---
 
-## 3. Verificación de Identidad y Acceso
+##  Verificación de Identidad y Acceso
 ----------------------------------------
 
 * **Cambiar de usuario:** Permite ingresar a la sesión del usuario para comprobar si puede acceder correctamente.
@@ -113,7 +113,7 @@ Un usuario recién creado con `useradd` está bloqueado hasta que le asignes una
 
 ---
 
-## 4. Modificación de Usuarios (`usermod`)
+##  Modificación de Usuarios (`usermod`)
 -------------------------------------------
 
 El comando `usermod` permite editar los valores de una cuenta que ya existe.
@@ -136,7 +136,7 @@ El comando `usermod` permite editar los valores de una cuenta que ya existe.
 
 ---
 
-## 5. Administración de Grupos con `gpasswd`
+##  Administración de Grupos con `gpasswd`
 --------------------------------------------
 
 El comando `gpasswd` es una alternativa más directa y limpia para añadir o remover usuarios de un grupo específico sin tocar el resto de sus configuraciones.
