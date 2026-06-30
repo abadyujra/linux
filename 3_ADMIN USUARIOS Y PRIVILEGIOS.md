@@ -26,20 +26,7 @@ Cada línea de este archivo representa a un usuario y sus campos están separado
 text
 Usuario : Password(?) : UID : GID : Descripción : Directorio Home : Shell por defecto
 
-# /etc/shadow
-
-juan:$6$902vABSb$8AShXXX:16969:0:99999:7:::
- 1           2             3   4   5    6 789
-
-1: UserName
-2: Password
-3: Ultimo cambio de password
-4: Edad mínima de la password
-5: Edad máxima de la password
-6: Periodo de advertencia
-7: Periodo de inactividad
-8: Fecha de expiración
-9: Reservado para uso futuro
+![Texto alternativo](1.png)
 
 # AGREGAR USUARIOS NUEVOS 
 
