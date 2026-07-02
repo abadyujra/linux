@@ -179,5 +179,82 @@ juan:$6$902vABSb$8AShXXX:16969:0:99999:7:::
     `id [usuario]` ➡️ Sirve para revisar al instante si se aplicaron bien los cambios de grupo.
     `usermod -g` ➡️ Cambia el grupo primario (el principal del usuario)
     `gpasswd -a` ➡️ Añade al usuario a un grupo secundario (manteniendo los que ya tenía). 
+    
+
+# PERMISOS DE ARCHIVOS EN LINUX (rwx)
+=====================================
+
+## Significado de los Permisos
+---------------------------------
+* **`r` (Read):** Lectura
+* **`w` (Write):** Escritura
+* **`x` (eXecution):** ejecucion
+---
+
+## Estructura de las Tres Capas
+----------------------------------
+Los permisos se agrupan en tres bloques de tres caracteres cada uno (`rwx rwx rwx`), asignados en este orden estricto:
+
+text
+  `rwx`    `rwx`     `rwx`
+ [user]  [group]   [other users]
+
+
+* `chmod` [permisos] [objeto]
+    [permisos]: Los permisos a asignar
+    [objeto]: elemento del filesystem
+    
+* [Permisos]:
+{u|g|o}{+|-}{r|w|x}*,…
+
+* ejemplo
+-cd /tmp/
+-touch archivo.txt
+-ls -l archivo.txt
+-`chmod` g+w archivo.txt
+-ls -l archivo.txt
+-`chmod` g-w archivo.txt
+-chmod go-w archivos
+-ls -l archivo.txt
+-chmod go+w archivo.txt
+-chmod o-rw archivo.txt
+-chmod u-x,g-w,o+r archivo.txt
+
+# 💡 El Truco Mental de los Permisos Octales en Linux
+
+¡Olvídate del binario! Para calcular permisos en Linux de forma instantánea, solo tienes que memorizar tres números fijos:
+
+* **Lectura (r)** = Vale **4**
+* **Escritura (w)** = Vale **2**
+* **Ejecución (x)** = Vale **1**
+
+Cualquier combinación de permisos es simplemente sumar esos números. ¡Nada más!
+
+---
+
+### 📊 Tabla Rápida de Sumas
+
+| Permiso | Significado | Operación Mental | Total Octal |
+| :---: | :--- | :---: | :---: |
+| `---` | Ningún permiso | $0$ | **0** |
+| `--x` | Solo Ejecución | $1$ | **1** |
+| `-w-` | Solo Escritura | $2$ | **2** |
+| `-wx` | Escritura y Ejecución | 2 + 1 | **3** |
+| `r--` | Solo Lectura | $4$ | **4** |
+| `r-x` | Lectura y Ejecución | 4 + 1 | **5** |
+| `rw-` | Lectura y Escritura | 4 + 2 | **6** |
+| `rwx` | Control Total | 4 + 2 + 1 | **7** |
+
+---
+
+### 👑 Estructura de los 3 Grupos (Ejemplo: `chmod 755`)
+
+Recuerda que cuando aplicas el comando (por ejemplo, `chmod 755 archivo.sh`), estás dándole un número a cada grupo en este orden estricto de izquierda a derecha:
+
+1.  **Primer número (7):** Dueño de la cuenta (`u` - User) ➔ `rwx` (4+2+1)
+2.  **Segundo número (5):** Grupo del usuario (`g` - Group) ➔ `r-x` (4+1)
+3.  **Tercer número (5):** El resto del mundo (`o` - Others) ➔ `r-x` (4+1)
+
+
 
 

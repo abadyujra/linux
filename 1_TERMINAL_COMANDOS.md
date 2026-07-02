@@ -136,4 +136,4 @@
 ## 6. Introducción Práctica a `awk`
 
 * `cat /etc/passwd | awk -F':' '{print $1}'` ➡️ Usa como delimitador el carácter de dos puntos (`-F':'`) y extrae la columna 1 (los nombres de usuarios del sistema).
-* `echo "hola mundo, que tal" | awk '{print $NF}'` ➡️ La variable especial `$NF` extrae automáticamente el último elemento de la cadena entregada (en este caso imprimirá la palabra "tal").
+* `echo "hola mundo, que tal" | awk '{print $NF}'` ➡️ La variable especial `$NF` extrae automáticamente el último elemento de la cadena entregada (en este caso imprimirá la palabra "tal")..
