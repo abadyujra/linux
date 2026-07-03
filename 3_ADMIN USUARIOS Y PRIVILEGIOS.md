@@ -254,6 +254,55 @@ Recuerda que cuando aplicas el comando (por ejemplo, `chmod 755 archivo.sh`), es
 1.  **Primer número (7):** Dueño de la cuenta (`u` - User) ➔ `rwx` (4+2+1)
 2.  **Segundo número (5):** Grupo del usuario (`g` - Group) ➔ `r-x` (4+1)
 3.  **Tercer número (5):** El resto del mundo (`o` - Others) ➔ `r-x` (4+1)
+`ejemplo`
+- #rwx rw- r-x
+- #111 110 101
+- chmod 0765 archivo.txt
+- ls -l archivo.txt
+- # r-- r-- ---
+- chmod 0440 archivo.txt
+- ls -l arachivo.txt
+ejmplo practico
+*<! tty1 creando usuario >
+- ls /home
+-sudo useradd user1
+-sudo useradd user2
+- grep user /etc/passwd
+- grep user /etc/group
+- sudo passwd user1
+- sudo passwd user2
+-ahora autentificar en tty2 y tty3
+- mkdir /tmp/pruebas
+- echo "hola mundo" > /tmp/pruebas/file1.txt
+- ls -l file1.txt
+- sudo `chown` user1:user1 file1.txt➡️el `chown` cambia de usuario al archivo file1.txt--
+-- tty user1 prueba
+- chmos o+w file1.txt
+-- <! agrear al usuario2 a un grupo hacer que el archivo tenga privilegio de grupo para ese grupo particular>
+- sudo groupadd file1_group
+- tail -n1 /etc/group
+- ls -l file1.txt
+--cambiamos de grupo al file1.txt con chown
+- sudo `chown`:file1_group file1.txt
+-ls -l
+-- otra forma de camabiar de grupoal file1.txt con `chgrp`
+- sudo chgrp user1 file1.txt
+-ls -l
+-sudo chgrp file1_group file1.txt
+<! como modificar ejecucion>
+/*
+    #!/bin/bash
+    echo "hola mundo"
+*/
+mv file1.txt file1.sh
+chmod u+x file1.sh 
+chmod g+x file1.sh
+chmod 0774
+sudo chgrp user1 file.sh
+ls -l
+
+
+
 
 
 
