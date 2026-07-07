@@ -315,10 +315,7 @@ ls -l
 * En un directorio: Los permisos son dependientes. El permiso x actúa como una "llave de paso general". Si el directorio no tiene x, bloquea casi cualquier acción que quieras hacer con los archivos de su interior, sin importar los permisos que tengan esos archivos.
 
 # 🔒 APUNTES: PERMISOS ESPECIALES EN LINUX
-## 📝 Conceptos Clave
-* **`SUID` (Set User ID -> s/S):** El archivo se ejecuta con los privilegios del **usuario dueño** (ej: `root`), sin importar quién lo lance.
-* **`SGID` (Set Group ID -> s/S):** El archivo se ejecuta con los privilegios del **grupo dueño**. En **directorios**, hace que todo archivo nuevo herede automáticamente el grupo del directorio padre.
-* **`Sticky Bit` (t/T):** Se aplica a **directorios públicos** (ej: `/tmp`). Permite que cualquiera cree archivos, pero **solo el dueño** de un archivo (o `root`) puede borrarlo.
+
 
 * `suid`: Set User ID(s/S)
     -Permiso de ejecucion
@@ -349,6 +346,8 @@ int main(int argc, const char *argv[]){
 }
 */
 
+## SUID
+
 gcc listar_root.c -o listar➡️ -o da un nombre
 ./listar
 ls -l
@@ -366,7 +365,7 @@ ls -l
 which passwd
 ls -l /usr/bin/passwd
 
-##`SGID` 
+##`SGID` archivos y direcotrios
 modificar vim
 gcc listar_root.c -o listar
 ls -l
@@ -375,7 +374,7 @@ ls -l
 sudo chmod g+s listar
 ls -l
 ./listar
-
+* `SGID` en direcotorios
 ejm con directorios
 mkdir directorio
 ls -l
@@ -388,6 +387,20 @@ ls -l directorio
 sudo chmod g+s directorio
 ls -l
 touch directorio/archivo3
+
+# 📁 SGID en Directorios (La Herencia Automática)
+
+### 🎯 ¿Para qué sirve?
+Sirve para **trabajo colaborativo**. Evita que los archivos nuevos de una carpeta compartida nazcan con el grupo privado de cada usuario.
+
+### 💡 La Regla de Oro:
+> Cuando activas el SGID en una carpeta, **CUALQUIER archivo o subcarpeta que se cree adentro heredará automáticamente el grupo de la carpeta madre**, sin importar qué usuario lo haya creado.
+
+### 🛠️ Comandos clave para el laboratorio:
+bash
+sudo chgrp equipo_diseño carpeta/   # 1. Le das la carpeta al grupo de trabajo
+sudo chmod g+s carpeta/             # 2. ¡PRENDES LA MAGIA! (SGID)
+
 
 ##  `Sticky Bit` se aplica en directorios
 mkdir pruebas
