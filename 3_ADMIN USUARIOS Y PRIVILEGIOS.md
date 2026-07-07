@@ -316,8 +316,8 @@ ls -l
 
 # 🔒 APUNTES: PERMISOS ESPECIALES EN LINUX
 * `suid`: Set User ID(s/S)
-    1.Permiso de ejecucion
-    2/Ejecuta conprivilegios de usuario dueno
+    *Permiso de ejecucion*
+    *Ejecuta conprivilegios de usuario dueno*
 * `SGID`: Set Group ID (s/S)
     -Permiso de ejecucion
     -Ejecutando con privilegios de grupo
