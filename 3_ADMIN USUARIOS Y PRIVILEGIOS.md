@@ -397,7 +397,7 @@ Sirve para **trabajo colaborativo**. Evita que los archivos nuevos de una carpet
 > Cuando activas el SGID en una carpeta, **CUALQUIER archivo o subcarpeta que se cree adentro heredará automáticamente el grupo de la carpeta madre**, sin importar qué usuario lo haya creado.
 
 ### 🛠️ Comandos clave para el laboratorio:
-bash
+/* bash
 sudo chgrp equipo_diseño carpeta/   # 1. Le das la carpeta al grupo de trabajo
 sudo chmod g+s carpeta/             # 2. ¡PRENDES LA MAGIA! (SGID)
 
