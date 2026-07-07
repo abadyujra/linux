@@ -315,9 +315,14 @@ ls -l
 * En un directorio: Los permisos son dependientes. El permiso x actúa como una "llave de paso general". Si el directorio no tiene x, bloquea casi cualquier acción que quieras hacer con los archivos de su interior, sin importar los permisos que tengan esos archivos.
 
 # 🔒 APUNTES: PERMISOS ESPECIALES EN LINUX
+## 📝 Conceptos Clave
+* **`SUID` (Set User ID -> s/S):** El archivo se ejecuta con los privilegios del **usuario dueño** (ej: `root`), sin importar quién lo lance.
+* **`SGID` (Set Group ID -> s/S):** El archivo se ejecuta con los privilegios del **grupo dueño**. En **directorios**, hace que todo archivo nuevo herede automáticamente el grupo del directorio padre.
+* **`Sticky Bit` (t/T):** Se aplica a **directorios públicos** (ej: `/tmp`). Permite que cualquiera cree archivos, pero **solo el dueño** de un archivo (o `root`) puede borrarlo.
+
 * `suid`: Set User ID(s/S)
-    *Permiso de ejecucion*
-    *Ejecuta conprivilegios de usuario dueno*
+    -Permiso de ejecucion
+    -Ejecuta conprivilegios de usuario dueno
 * `SGID`: Set Group ID (s/S)
     -Permiso de ejecucion
     -Ejecutando con privilegios de grupo
