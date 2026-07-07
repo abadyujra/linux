@@ -289,17 +289,118 @@ ejmplo practico
 - sudo chgrp user1 file1.txt
 -ls -l
 -sudo chgrp file1_group file1.txt
-<! como modificar ejecucion>
+-sudo usermod -G user2,file1_group user2<!ojo con esto user2 ver>
+<! como modificar ejecucion> en este caso se tiene que jugar con la terna de u,g,o
 /*
     #!/bin/bash
-    echo "hola mundo"
+    echo "hola mundo sergio"
 */
 mv file1.txt file1.sh
+ls -ld
 chmod u+x file1.sh 
 chmod g+x file1.sh
 chmod 0774
 sudo chgrp user1 file.sh
 ls -l
+
+##💡 Resumen para recordar siempre:
+
+* Para que editen `(rw)`: Creas un grupo (controlas quién entra).
+
+* Para que arranquen `(x)`: Prendes o apagas el switch de la terna, jugar con los permisos (controlas qué hacen).
+
+
+* En un archivo: Los permisos son independientes. Tener r o tener x no cambia las reglas del otro. Puedes tener un archivo con r-- y leerlo perfectamente, o un script binario con --x que se ejecuta pero cuyo código no puedes leer.
+
+* En un directorio: Los permisos son dependientes. El permiso x actúa como una "llave de paso general". Si el directorio no tiene x, bloquea casi cualquier acción que quieras hacer con los archivos de su interior, sin importar los permisos que tengan esos archivos.
+
+# 🔒 APUNTES: PERMISOS ESPECIALES EN LINUX
+* `suid`: Set User ID(s/S)
+    -Permiso de ejecucion
+    -Ejecuta conprivilegios de usuario dueno
+* `SGID`: Set Group ID (s/S)
+    -Permiso de ejecucion
+    -Ejecutando con privilegios de grupo
+    -Aplicable a directorios
+* `Sticky`: (t/T)
+    -Recursos editable solo por el dueno
+=============================
+* `suid`
+vim listar_root.c
+/*
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+int main(int argc, const char *argv[]){
+    setuid(getuid());➡️ 
+    setregid(getegid(), getegid());➡️ 
+    
+    system("ls -l /root");
+    printf("UID: %d --EUID: %d\n", getuid(),geteuid());
+    printf("GID: %d --EGID: %d\n", getgid(),getegid());
+    return 0;
+}
+*/
+
+gcc listar_root.c -o listar➡️ -o da un nombre
+./listar
+ls -l
+sudo chown root listar
+sudo chmod u+s listar
+ls -l
+./listar
+modificar vim
+
+gcc listar_root.c -o listar
+sudo chown root listar
+sudo chmod u+s listar
+ls -l
+--ejemplo 
+which passwd
+ls -l /usr/bin/passwd
+
+* `SGID` 
+modificar vim
+gcc listar_root.c -o listar
+ls -l
+sudo chgrp root listar
+ls -l
+sudo chmod g+s listar
+ls -l
+./listar
+
+ejm con directorios
+mkdir directorio
+ls -l
+touch directorio/archivo
+ls -l
+sudo chgrup users direcotorio
+ls -l
+touch directorio/archivo2
+ls -l directorio
+sudo chmod g+s directorio
+ls -l
+touch directorio/archivo3
+
+* `Sticky Bit` se aplica en directorios
+mkdir pruebas
+ls -ld pruebas
+pwd
+chmod o+w pruebas
+ls -ld pruebas
+touch /home/diego/pruebas/archivo_user1
+ls /home/diego/pruebas/archivo_user1
+con otro usuario ver el archivo
+rm archivo_user1 ... con el usuer2
+
+ls -ld pruebas
+chmod o+t pruebas
+ls -ld
+
+
+
+
 
 
 
