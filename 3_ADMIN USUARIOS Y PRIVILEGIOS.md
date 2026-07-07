@@ -316,8 +316,8 @@ ls -l
 
 # 🔒 APUNTES: PERMISOS ESPECIALES EN LINUX
 * `suid`: Set User ID(s/S)
-    -Permiso de ejecucion
-    -Ejecuta conprivilegios de usuario dueno
+    1.Permiso de ejecucion
+    2/Ejecuta conprivilegios de usuario dueno
 * `SGID`: Set Group ID (s/S)
     -Permiso de ejecucion
     -Ejecutando con privilegios de grupo
@@ -384,7 +384,7 @@ sudo chmod g+s directorio
 ls -l
 touch directorio/archivo3
 
-##`Sticky Bit` se aplica en directorios
+##  `Sticky Bit` se aplica en directorios
 mkdir pruebas
 ls -ld pruebas
 pwd
