@@ -324,8 +324,9 @@ ls -l
     -Aplicable a directorios
 * `Sticky`: (t/T)
     -Recursos editable solo por el dueno
-=============================
-* `suid`
+
+
+### `suid`
 vim listar_root.c
 /*
 #include <stdio.h>
@@ -360,7 +361,7 @@ ls -l
 which passwd
 ls -l /usr/bin/passwd
 
-* `SGID` 
+##`SGID` 
 modificar vim
 gcc listar_root.c -o listar
 ls -l
@@ -383,7 +384,7 @@ sudo chmod g+s directorio
 ls -l
 touch directorio/archivo3
 
-* `Sticky Bit` se aplica en directorios
+##`Sticky Bit` se aplica en directorios
 mkdir pruebas
 ls -ld pruebas
 pwd
